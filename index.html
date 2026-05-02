@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devraj Printing Press | Jind</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-navy: #0f172a;
+            --accent-gold: #f59e0b;
+            --soft-slate: #f1f5f9;
+            --white: #ffffff;
+            --text-main: #1e293b;
+            --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            color: var(--text-main);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .container-main {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 25px 15px;
+        }
+
+        /* Branding Section */
+        .header-section {
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .logo-box {
+            width: 110px;
+            height: 110px;
+            background: var(--white);
+            border-radius: 32px; /* Modern Squircle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: var(--card-shadow);
+            border: 4px solid var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-box img {
+            width: 80%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .business-name {
+            font-weight: 800;
+            font-size: 1.7rem;
+            color: var(--primary-navy);
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        .tagline-primary {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .tagline-secondary {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            padding: 15px 20px;
+            border-radius: 28px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        }
+
+        .profile-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-navy);
+            color: var(--accent-gold);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .profile-info h6 {
+            margin: 0;
+            font-weight: 800;
+            color: var(--primary-navy);
+        }
+
+        .profile-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Action Buttons */
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .btn-action {
+            padding: 16px;
+            border-radius: 24px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid transparent;
+        }
+
+        .btn-call {
+            background: var(--primary-navy);
+            color: white;
+            grid-column: span 2;
+            flex-direction: row;
+            justify-content: center;
+            gap: 12px;
+            font-size: 1.1rem;
+        }
+
+        .btn-call:hover {
+            background: #000;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--text-main);
+        }
+
+        .btn-white:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Services List */
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #94a3b8;
+            margin-left: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::after {
+            content: "";
+            height: 1px;
+            background: #cbd5e1;
+            flex-grow: 1;
+        }
+
+        .service-item {
+            background: var(--white);
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+
+        .service-item:hover {
+            transform: translateX(8px);
+            border-left-color: var(--accent-gold);
+            color: var(--primary-navy);
+        }
+
+        .service-icon {
+            width: 36px;
+            height: 36px;
+            background: #fffbeb;
+            color: var(--accent-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1rem;
+        }
+
+        /* Map Section */
+        .map-card {
+            background: var(--white);
+            padding: 10px;
+            border-radius: 35px;
+            box-shadow: var(--card-shadow);
+            margin-top: 35px;
+            overflow: hidden;
+        }
+
+        .map-container {
+            border-radius: 25px;
+            overflow: hidden;
+            line-height: 0;
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100% !important;
+            height: 250px !important;
+            border: 0;
+        }
+
+        .map-footer {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .address-text {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer-main {
+            background: var(--white);
+            margin-top: 50px;
+            padding: 40px 20px;
+            border-radius: 50px 50px 0 0;
+            text-align: center;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.03);
+        }
+
+        .social-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            background: var(--soft-slate);
+            color: var(--primary-navy);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--accent-gold);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .credit-text {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .credit-text b { color: #64748b; }
+
+        /* Animations */
+        .reveal {
+            animation: revealUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes revealUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+    </style>
+</head>
+<body>
+
+<div class="container-main">
+    <!-- Header -->
+    <header class="header-section reveal">
+        <div class="logo-box">
+            <!-- Fallback icon if logo.png is not found -->
+            <img src="logo.png" alt="Devraj Press" onerror="this.src='https://cdn-icons-png.flaticon.com/512/445/445866.png'">
+        </div>
+        <div class="tagline-primary">Satyamev Jayate</div>
+        <h1 class="business-name">Devraj Printing Press</h1>
+        <p class="tagline-secondary">"Printing Your Ideas into Reality"</p>
+    </header>
+
+    <!-- Profile -->
+    <div class="profile-card reveal delay-1">
+        <div class="profile-icon"><i class="bi bi-person-check-fill"></i></div>
+        <div class="profile-info">
+            <h6>Sunil Kumar</h6>
+            <p>Proprietor</p>
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="action-grid reveal delay-1">
+        <a href="tel:+919812280646" class="btn-action btn-call">
+            <i class="bi bi-telephone-outbound-fill"></i>
+            <span>Call: 98122-80646</span>
+        </a>
+        <a href="https://wa.me/919812280646" class="btn-action btn-white">
+            <i class="bi bi-whatsapp fs-3 text-success"></i>
+            <span>WhatsApp</span>
+        </a>
+        <a href="mailto:devrajpres@gmail.com" class="btn-action btn-white">
+            <i class="bi bi-envelope-at fs-3 text-primary"></i>
+            <span>Email Us</span>
+        </a>
+    </div>
+
+    <!-- Services Section -->
+    <div class="section-label reveal delay-2">Premium Printing Services</div>
+    
+    <div class="reveal delay-2">
+        <div class="service-item">
+            <div class="service-icon"><i class="bi bi-layers"></i></div>
+            <span>Flex Printing / Hoardings</span>
+        </div>
+        <div class="service-item">
+            <div class="service-icon"><i class="bi bi-file-earmark-richtext"></i></div>
+            <span>Pamphlets and Flyers</span>
+        </div>
+        <div class="service-item">
+            <div class="service-icon"><i class="bi bi-sticky"></i></div>
+            <span>Stickers & Label Printing</span>
+        </div>
+        <div class="service-item">
+            <div class="service-icon"><i class="bi bi-book"></i></div>
+            <span>Writer Books Printing</span>
+        </div>
+        <div class="service-item">
+            <div class="service-icon"><i class="bi bi-palette"></i></div>
+            <span>Wallpaper and Banners</span>
+        </div>
+        <div class="service-item">
+            <div class="service-icon"><i class="bi bi-megaphone"></i></div>
+            <span>Print Advertisements</span>
+        </div>
+        <div class="service-item">
+            <div class="service-icon"><i class="bi bi-lightbulb"></i></div>
+            <span>Glow Sign Boards</span>
+        </div>
+        <div class="service-item">
+            <div class="service-icon"><i class="bi bi-person-video2"></i></div>
+            <span>Standees & Vinyl Printing</span>
+        </div>
+        <div class="service-item">
+            <div class="service-icon"><i class="bi bi-printer"></i></div>
+            <span>All Types of Offset Printing</span>
+        </div>
+        <div class="service-item">
+            <div class="service-icon"><i class="bi bi-image"></i></div>
+            <span>Poster Printing</span>
+        </div>
+    </div>
+
+    <!-- Map & Location -->
+    <div class="map-card reveal delay-3">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3478.595871252732!2d76.30260687552644!3d29.32352797529445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391204efd19243c5%3A0x3d80982f384f8036!2sDevraj%20Printing%20Press!5e0!3m2!1sen!2sin!4v1777725727796!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map-footer">
+            <div class="section-label mb-2" style="justify-content: center;">Location</div>
+            <p class="address-text">
+                <i class="bi bi-geo-alt-fill text-danger"></i> 
+                Near Jat College, Jind (Haryana)
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-main reveal delay-3">
+    <div class="social-row">
+        <a href="https://www.facebook.com/share/1AwXjFgz6k/" target="_blank" class="social-btn">
+            <i class="bi bi-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/devrajpres" target="_blank" class="social-btn">
+            <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://maps.app.goo.gl/95Mdbj9X3ZEBnbiC9?g_st=aw" target="_blank" class="social-btn">
+            <i class="bi bi-google"></i>
+        </a>
+    </div>
+    <p class="credit-text">
+        © Crafted by <b>OM ADVERTISEMENT</b>, Hansi <br>
+        <span class="small">+91 87086 46546</span>
+    </p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
